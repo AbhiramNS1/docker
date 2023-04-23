@@ -1,0 +1,42 @@
+docker images # helps to see all images in docker
+
+docker ps -a   # see all docker containers 
+
+docker build -t tag_for_my_app  /path/to/Dockerfile    # build a docker image from docker file
+
+docker run --name container_name -p host_port:container_port image_name_or_id    # run the docker container 
+
+docker rm container_name_or_id   # delete container . Use -f if it is running
+
+docker rmi image_name_or_id       #delete image . Use -f if it is running
+
+docker system prune # delete everything 
+
+
+____________________________Volumes in docker ______________________________________
+
+
+docker run -v host_directory:/container_directory  image_name_or_id    # use volumes (ie, sharing a folder in the host computer with the container)
+//////   when using the volume the folders are shared .To make a purticular folder not shared map it as an anonymous volume
+/////  like the node_modules folder does not need to be shared so 
+docker run -v host_directory:/container_directory -v /container_directory/node_modules  image_name_or_id    # this will create an anonymous volume which will prevent the sharing of the local node_modules folder form being 
+
+
+
+________________________________Docker compose_______________________________________
+
+docker-compose up   # run the docker compose file
+
+docker down rmi all -v     # stops the container delete all the images and volumes we can avoid "rmi all -v "
+
+
+
+________________________Docker Hub __________________________________
+
+docker tag my-image my-dockerhub-username/my-repo-name  # Tag the Docker image with your DockerHub username and the repository name
+
+docker login      # login to the docker terminal 
+
+docker push abhiramns/myfirstapp   # push to dockerhub 
+
+docker pull abhiramns/myfirstapp   # pull from deockerhub

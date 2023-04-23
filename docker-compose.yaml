@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  exp-app:
+    build: ./exp-app
+    container_name: expapp
+    ports:
+      - '3000:4000'
+    volumes:
+      - ./exp-app:/app
+      - /app/node_modules
